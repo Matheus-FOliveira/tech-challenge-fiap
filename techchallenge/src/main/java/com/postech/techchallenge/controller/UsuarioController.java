@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.postech.techchallenge.entities.Usuario;
 import com.postech.techchallenge.services.UsuarioService;
+import com.postech.techchallenge.swagger.UsuarioSwaggerOperations;
 
 @RestController
 @RequestMapping("/api/v1/usuarios")
-public class UsuarioController {
+public class UsuarioController implements UsuarioSwaggerOperations {
 
     private final UsuarioService usuarioService;
 
@@ -46,5 +47,4 @@ public class UsuarioController {
         this.usuarioService.delete(id);
         return ResponseEntity.ok().build();
     }
-
 }
