@@ -19,7 +19,6 @@ public class UsuarioService {
     public void save(Usuario usuario) {
 
         var save = usuarioRepository.save(usuario);
-
         Assert.state(save == 1, "Erro ao salvar usuário." + usuario.getNome());
         
     }
@@ -28,7 +27,6 @@ public class UsuarioService {
     public void update(Usuario usuario, Long id) {
 
         var update = usuarioRepository.update(usuario, id);
-
         Assert.state(update == 1, "Erro ao atualizar usuário." + usuario.getNome());
         
     }
@@ -37,7 +35,6 @@ public class UsuarioService {
     public void delete(Long id) {
 
         var delete = usuarioRepository.delete(id);
-
         Assert.state(delete == 1, "Erro ao deletar usuário." + id);
         
     }

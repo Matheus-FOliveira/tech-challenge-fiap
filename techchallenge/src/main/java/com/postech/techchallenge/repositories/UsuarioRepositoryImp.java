@@ -1,7 +1,10 @@
 package com.postech.techchallenge.repositories;
 
+import org.springframework.stereotype.Repository;
+
 import com.postech.techchallenge.entities.Usuario;
 
+@Repository
 public class UsuarioRepositoryImp implements UsuarioRepository {
 
     @Override
