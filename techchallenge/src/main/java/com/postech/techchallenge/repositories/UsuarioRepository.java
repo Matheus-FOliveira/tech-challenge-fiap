@@ -2,6 +2,8 @@ package com.postech.techchallenge.repositories;
 
 import com.postech.techchallenge.entities.Usuario;
 
+import java.util.List;
+
 public interface UsuarioRepository {
     
     // Criação
@@ -14,5 +16,7 @@ public interface UsuarioRepository {
     Integer delete(Long id); 
 
     // Validação
-    
+    Usuario findById(Long id);
+
+    List<Usuario> findAll();
 }
