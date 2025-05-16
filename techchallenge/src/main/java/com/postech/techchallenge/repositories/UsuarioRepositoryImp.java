@@ -29,10 +29,13 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
 
     @Override
     public Usuario findById(Long id) {
+        //TODO
         throw new UnsupportedOperationException("Unimplemented method 'findById");
     }
 
+    @Override
     public List<Usuario> findAll() {
+        //TODO
         throw new UnsupportedOperationException("Unimplemented method 'findAll");
     }
 

@@ -25,5 +25,5 @@ public class Usuario {
     private String userLogin;
     private String senha;
     private LocalDate ultimaAlteracao;
-    private String endereco;
+    private Endereco endereco;
 }
