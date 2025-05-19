@@ -9,8 +9,8 @@ public class CriarUsuarioUseCase {
 
     private UsuarioRepository usuarioRepository;
 
-    public void executar(final Usuario usuario) {
-        usuarioRepository.save(usuario);
+    public Usuario executar(final Usuario novoUsuario) {
+        return usuarioRepository.save(novoUsuario);
     }
 
 }

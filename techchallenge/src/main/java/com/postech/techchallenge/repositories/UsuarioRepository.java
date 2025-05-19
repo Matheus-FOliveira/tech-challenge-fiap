@@ -1,22 +1,7 @@
 package com.postech.techchallenge.repositories;
 
 import com.postech.techchallenge.entities.Usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface UsuarioRepository {
-    
-    // Criação
-    Integer save(Usuario usuario); 
-
-    // Atualização
-    Integer update(Usuario usuario, Long id); 
-
-    // Exclusão
-    Integer delete(Long id); 
-
-    // Validação
-    Usuario findById(Long id);
-
-    List<Usuario> findAll();
+public interface UsuarioRepository extends JpaRepository<Usuario, Long>, UsuarioCustomRepository {
 }
