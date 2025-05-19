@@ -3,6 +3,7 @@ package com.postech.techchallenge.helpers;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -19,8 +20,10 @@ public class EncryptionHelper {
     não deve ser setada hardcoded no codigo dessa forma, idealmente deve ser salva em uma secret vault do ambiente
     mas devemos ver isso quando chegarmos na materia de security, eu acho.
     por hora, podemos setar aqui mesmo, ou no arquivo properties.
+    EDIT: dessa forma que fiz aqui, ele pega do application.properties
      */
-    private final String secretKey = "chave secreta";
+    @Value("${database.encryptation-key}")
+    private final String secretKey;
 
     private static final String DEFAULT_ALGORITH = "AES";
 

@@ -1,6 +1,7 @@
 package com.postech.techchallenge.repositories;
 
 import com.postech.techchallenge.entities.Endereco;
+import com.postech.techchallenge.helpers.EncryptionHelper;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -17,6 +18,8 @@ public class UsuarioCustomRepositoryImp implements UsuarioCustomRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    private EncryptionHelper encryptionHelper;
 
     @Override
     public Optional<Usuario> updateEndereco(final Long id, final Endereco novoEndereco) {
@@ -38,8 +41,7 @@ public class UsuarioCustomRepositoryImp implements UsuarioCustomRepository {
             return Optional.empty();
         }
 
-        // TODO chamar encrypt
-        usuario.setSenha(novaSenha);
+        usuario.setSenha(encryptionHelper.encrypt(novaSenha));
         entityManager.merge(usuario);
 
         return Optional.of(usuario);

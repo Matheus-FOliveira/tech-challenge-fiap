@@ -42,10 +42,10 @@ public class UsuarioController implements UsuarioSwaggerOperations {
     @PostMapping
     public ResponseEntity<Usuario> criarUsuario(@RequestBody final Usuario novoUsuario) {
         final Usuario usuarioCriado = criarUsuarioUseCase.executar(novoUsuario);
-        if (usuarioCriado == null) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        if (usuarioCriado != null) {
+            return ResponseEntity.ok(usuarioCriado);
         }
-        return ResponseEntity.ok(usuarioCriado);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @PutMapping("/{id}")
@@ -53,9 +53,9 @@ public class UsuarioController implements UsuarioSwaggerOperations {
                                                     @PathVariable final Long id) {
         final boolean usuarioAtualizado = atualizarUsuarioUseCase.executar(id, usuario);
         if (usuarioAtualizado) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @PatchMapping("/updateEndereco/{id}")
@@ -63,9 +63,9 @@ public class UsuarioController implements UsuarioSwaggerOperations {
                                                      @PathVariable final Long id) {
         final boolean usuarioAtualizado = atualizarEnderecoUseCase.executar(id, novoEndereco);
         if (usuarioAtualizado) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @PatchMapping("/updateSenha/{id}")
@@ -73,16 +73,18 @@ public class UsuarioController implements UsuarioSwaggerOperations {
                                                   @PathVariable final Long id) {
         final boolean usuarioAtualizado = atualizarSenhaUseCase.executar(id, novaSenha);
         if (usuarioAtualizado) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @DeleteMapping("/deleteUsuario/{id}")
     public ResponseEntity<Usuario> deletarUsuario(@PathVariable final Long id) {
-        //TODO melhorar
-        deletarUsuarioUseCase.executar(id);
-        return ResponseEntity.ok().build();
+        final boolean usuarioDeletado = deletarUsuarioUseCase.executar(id);
+        if (usuarioDeletado) {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @GetMapping("/buscarUsuario/{id}")
