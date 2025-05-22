@@ -1,8 +1,11 @@
 package com.postech.techchallenge.interfaces;
 
 import com.postech.techchallenge.application.*;
-import com.postech.techchallenge.application.dto.CriarUsuarioDTO;
-import com.postech.techchallenge.domain.Endereco;
+import com.postech.techchallenge.application.request.AtualizarSenhaRequest;
+import com.postech.techchallenge.application.request.AtualizarUsuarioRequest;
+import com.postech.techchallenge.application.request.CriarUsuarioRequest;
+import com.postech.techchallenge.application.response.BuscarTodosUsuariosResponse;
+import com.postech.techchallenge.application.response.BuscarUsuarioResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +20,6 @@ public class UsuarioController implements UsuarioSwaggerOperations {
 
     private final CriarUsuarioUseCase criarUsuarioUseCase;
     private final AtualizarUsuarioUseCase atualizarUsuarioUseCase;
-    private final AtualizarEnderecoUseCase atualizarEnderecoUseCase;
     private final AtualizarSenhaUseCase atualizarSenhaUseCase;
     private final DeletarUsuarioUseCase deletarUsuarioUseCase;
     private final BuscarUsuarioUseCase buscarUsuarioUseCase;
@@ -25,14 +27,12 @@ public class UsuarioController implements UsuarioSwaggerOperations {
 
     public UsuarioController(CriarUsuarioUseCase criarUsuarioUseCase,
                              AtualizarUsuarioUseCase atualizarUsuarioUseCase,
-                             AtualizarEnderecoUseCase atualizarEnderecoUseCase,
                              AtualizarSenhaUseCase atualizarSenhaUseCase,
                              DeletarUsuarioUseCase deletarUsuarioUseCase,
                              BuscarUsuarioUseCase buscarUsuarioUseCase,
                              BuscarTodosUsuariosUseCase buscarTodosUsuariosUseCase) {
         this.criarUsuarioUseCase = criarUsuarioUseCase;
         this.atualizarUsuarioUseCase = atualizarUsuarioUseCase;
-        this.atualizarEnderecoUseCase = atualizarEnderecoUseCase;
         this.atualizarSenhaUseCase = atualizarSenhaUseCase;
         this.deletarUsuarioUseCase = deletarUsuarioUseCase;
         this.buscarUsuarioUseCase = buscarUsuarioUseCase;
@@ -40,28 +40,18 @@ public class UsuarioController implements UsuarioSwaggerOperations {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> criarUsuario(@RequestBody final CriarUsuarioDTO dto) {
-        final Long idNovoUsuario = criarUsuarioUseCase.executar(dto);
+    public ResponseEntity<Long> criarUsuario(@RequestBody final CriarUsuarioRequest request) {
+        final Long idNovoUsuario = criarUsuarioUseCase.executar(request);
         if (idNovoUsuario != null) {
-            return ResponseEntity.ok(usuarioCriado);
+            return ResponseEntity.ok(idNovoUsuario);
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> atualizarUsuario(@RequestBody final Usuario usuario,
+    public ResponseEntity<Usuario> atualizarUsuario(@RequestBody final AtualizarUsuarioRequest request,
                                                     @PathVariable final Long id) {
-        final boolean usuarioAtualizado = atualizarUsuarioUseCase.executar(id, usuario);
-        if (usuarioAtualizado) {
-            return ResponseEntity.ok().build();
-        }
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    }
-
-    @PatchMapping("/updateEndereco/{id}")
-    public ResponseEntity<Usuario> atualizarEndereco(@RequestBody final Endereco novoEndereco,
-                                                     @PathVariable final Long id) {
-        final boolean usuarioAtualizado = atualizarEnderecoUseCase.executar(id, novoEndereco);
+        final boolean usuarioAtualizado = atualizarUsuarioUseCase.executar(id, request);
         if (usuarioAtualizado) {
             return ResponseEntity.ok().build();
         }
@@ -69,9 +59,9 @@ public class UsuarioController implements UsuarioSwaggerOperations {
     }
 
     @PatchMapping("/updateSenha/{id}")
-    public ResponseEntity<Usuario> atualizarSenha(@RequestBody final String novaSenha,
+    public ResponseEntity<Usuario> atualizarSenha(@RequestBody final AtualizarSenhaRequest request,
                                                   @PathVariable final Long id) {
-        final boolean usuarioAtualizado = atualizarSenhaUseCase.executar(id, novaSenha);
+        final boolean usuarioAtualizado = atualizarSenhaUseCase.executar(id, request);
         if (usuarioAtualizado) {
             return ResponseEntity.ok().build();
         }
@@ -88,19 +78,19 @@ public class UsuarioController implements UsuarioSwaggerOperations {
     }
 
     @GetMapping("/buscarUsuario/{id}")
-    public ResponseEntity<Usuario> buscarUsuario(@PathVariable final Long id) {
-        final Usuario usuario = buscarUsuarioUseCase.executar(id);
-        if (usuario != null) {
-            return ResponseEntity.ok(usuario);
+    public ResponseEntity<BuscarUsuarioResponse> buscarUsuario(@PathVariable final Long id) {
+        final BuscarUsuarioResponse response = buscarUsuarioUseCase.executar(id);
+        if (response != null) {
+            return ResponseEntity.ok(response);
         }
         return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/buscarTodos")
-    public ResponseEntity<List<Usuario>> buscarTodosUsuarios() {
-        final List<Usuario> todos = buscarTodosUsuariosUseCase.executar();
-        if (todos != null && !todos.isEmpty()) {
-            return ResponseEntity.ok(todos);
+    public ResponseEntity<BuscarTodosUsuariosResponse> buscarTodosUsuarios() {
+        final BuscarTodosUsuariosResponse response = buscarTodosUsuariosUseCase.executar();
+        if (response != null) {
+            return ResponseEntity.ok(response);
         }
         return ResponseEntity.notFound().build();
     }

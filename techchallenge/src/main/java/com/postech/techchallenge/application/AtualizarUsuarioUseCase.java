@@ -1,5 +1,6 @@
 package com.postech.techchallenge.application;
 
+import com.postech.techchallenge.application.request.AtualizarUsuarioRequest;
 import com.postech.techchallenge.domain.Usuario;
 import com.postech.techchallenge.infrastructure.UsuarioRepository;
 import lombok.AllArgsConstructor;
@@ -11,17 +12,16 @@ public class AtualizarUsuarioUseCase {
 
     private UsuarioRepository usuarioRepository;
 
-    public boolean executar(final Long id, final Usuario novoUsuario) {
+    public boolean executar(final Long id, final AtualizarUsuarioRequest request) {
         Optional<Usuario> usuarioEncontrado = usuarioRepository.findById(id);
         if (usuarioEncontrado.isPresent()) {
-            usuarioEncontrado.get().setNome(novoUsuario.getNome());
-            usuarioEncontrado.get().setEmail(novoUsuario.getEmail());
-            usuarioEncontrado.get().setUserLogin(novoUsuario.getUserLogin());
-            usuarioEncontrado.get().setSenha(novoUsuario.getSenha());
-            usuarioEncontrado.get().setEndereco(novoUsuario.getEndereco());
+            usuarioEncontrado.get().atualizaDados(request.getNome(), request.getEndereco(),
+                    request.getUserLogin(), request.getEmail());
+
+            usuarioRepository.save(usuarioEncontrado.get());
+            return true;
         }
-        Optional<Usuario> usuarioSalvo = Optional.of(usuarioRepository.save(usuarioEncontrado.get()));
-        return usuarioSalvo.isPresent();
+        return false;
     }
 
 }

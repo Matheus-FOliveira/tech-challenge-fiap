@@ -7,5 +7,4 @@ import java.util.Optional;
 
 public interface UsuarioCustomRepository {
     Optional<Usuario> updateEndereco(Long id, Endereco novoEndereco);
-    Optional<Usuario> updateSenha(Long id, String novaSenha);
 }

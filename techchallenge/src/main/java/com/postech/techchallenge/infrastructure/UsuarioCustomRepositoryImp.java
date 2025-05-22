@@ -33,17 +33,4 @@ public class UsuarioCustomRepositoryImp implements UsuarioCustomRepository {
         return Optional.of(usuarioAtualizado);
     }
 
-    @Override
-    public Optional<Usuario> updateSenha(Long id, String novaSenha) {
-        Usuario usuario = entityManager.find(Usuario.class, id);
-        if (usuario == null) {
-            return Optional.empty();
-        }
-
-        usuario.setSenha(encryptionHelper.encrypt(novaSenha));
-        entityManager.merge(usuario);
-
-        return Optional.of(usuario);
-    }
-
 }

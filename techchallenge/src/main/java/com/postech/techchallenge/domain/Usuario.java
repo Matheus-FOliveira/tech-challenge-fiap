@@ -11,7 +11,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-@Setter
 @Entity
 @AllArgsConstructor
 public class Usuario {
@@ -36,4 +35,16 @@ public class Usuario {
         this.userLogin = userLogin;
         this.email = email;
     }
+
+    public void atualizaDados(String nome, Endereco endereco, String userLogin, String email) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.userLogin = userLogin;
+        this.email = email;
+    }
+
+    public void atualizaSenha(String novaSenha) {
+        this.senha = novaSenha;
+    }
+
 }
