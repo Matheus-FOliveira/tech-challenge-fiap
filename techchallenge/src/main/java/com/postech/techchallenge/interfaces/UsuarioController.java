@@ -1,13 +1,13 @@
-package com.postech.techchallenge.controller;
+package com.postech.techchallenge.interfaces;
 
-import com.postech.techchallenge.entities.Endereco;
-import com.postech.techchallenge.usecases.*;
+import com.postech.techchallenge.application.*;
+import com.postech.techchallenge.application.dto.CriarUsuarioDTO;
+import com.postech.techchallenge.domain.Endereco;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.postech.techchallenge.entities.Usuario;
-import com.postech.techchallenge.swagger.UsuarioSwaggerOperations;
+import com.postech.techchallenge.domain.Usuario;
 
 import java.util.List;
 
@@ -40,9 +40,9 @@ public class UsuarioController implements UsuarioSwaggerOperations {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> criarUsuario(@RequestBody final Usuario novoUsuario) {
-        final Usuario usuarioCriado = criarUsuarioUseCase.executar(novoUsuario);
-        if (usuarioCriado != null) {
+    public ResponseEntity<Usuario> criarUsuario(@RequestBody final CriarUsuarioDTO dto) {
+        final Long idNovoUsuario = criarUsuarioUseCase.executar(dto);
+        if (idNovoUsuario != null) {
             return ResponseEntity.ok(usuarioCriado);
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

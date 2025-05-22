@@ -1,7 +1,7 @@
-package com.postech.techchallenge.usecases;
+package com.postech.techchallenge.application;
 
-import com.postech.techchallenge.entities.Usuario;
-import com.postech.techchallenge.repositories.UsuarioRepository;
+import com.postech.techchallenge.domain.Usuario;
+import com.postech.techchallenge.infrastructure.UsuarioRepository;
 import lombok.AllArgsConstructor;
 
 import java.util.List;

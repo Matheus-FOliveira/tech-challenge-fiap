@@ -1,11 +1,11 @@
-package com.postech.techchallenge.swagger;
+package com.postech.techchallenge.interfaces;
 
-import com.postech.techchallenge.entities.Endereco;
+import com.postech.techchallenge.domain.Endereco;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.postech.techchallenge.entities.Usuario;
+import com.postech.techchallenge.domain.Usuario;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

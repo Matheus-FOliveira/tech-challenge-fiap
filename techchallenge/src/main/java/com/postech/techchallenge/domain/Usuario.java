@@ -1,4 +1,4 @@
-package com.postech.techchallenge.entities;
+package com.postech.techchallenge.domain;
 
 import java.time.LocalDate;
 
@@ -12,11 +12,8 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode
-@ToString
 @Entity
+@AllArgsConstructor
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +28,12 @@ public class Usuario {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id", unique = true)
     private Endereco endereco;
+
+    public Usuario(String nome, Endereco endereco, String senha, String userLogin, String email) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.senha = senha;
+        this.userLogin = userLogin;
+        this.email = email;
+    }
 }

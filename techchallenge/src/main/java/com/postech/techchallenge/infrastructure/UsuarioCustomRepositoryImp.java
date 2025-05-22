@@ -1,15 +1,14 @@
-package com.postech.techchallenge.repositories;
+package com.postech.techchallenge.infrastructure;
 
-import com.postech.techchallenge.entities.Endereco;
-import com.postech.techchallenge.helpers.EncryptionHelper;
+import com.postech.techchallenge.domain.Endereco;
+import com.postech.techchallenge.infrastructure.shared.EncryptionHelper;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
-import com.postech.techchallenge.entities.Usuario;
+import com.postech.techchallenge.domain.Usuario;
 
-import java.util.List;
 import java.util.Optional;
 
 @Transactional

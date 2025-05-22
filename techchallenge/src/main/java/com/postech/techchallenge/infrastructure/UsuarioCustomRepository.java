@@ -1,7 +1,7 @@
-package com.postech.techchallenge.repositories;
+package com.postech.techchallenge.infrastructure;
 
-import com.postech.techchallenge.entities.Endereco;
-import com.postech.techchallenge.entities.Usuario;
+import com.postech.techchallenge.domain.Endereco;
+import com.postech.techchallenge.domain.Usuario;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.postech.techchallenge.entities;
+package com.postech.techchallenge.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

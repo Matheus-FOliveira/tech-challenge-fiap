@@ -1,4 +1,4 @@
-package com.postech.techchallenge.helpers;
+package com.postech.techchallenge.infrastructure.shared;
 
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
