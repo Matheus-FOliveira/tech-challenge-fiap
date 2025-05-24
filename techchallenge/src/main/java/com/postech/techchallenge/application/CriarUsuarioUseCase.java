@@ -15,7 +15,7 @@ public class CriarUsuarioUseCase {
     public Long executar(final CriarUsuarioRequest request) {
         final Usuario novoUsuario = new Usuario(request.getNome(), request.getEndereco(),
                 request.getSenha(), request.getUserLogin(), request.getEmail());
-        novoUsuario.setSenha(encryptionHelper.encrypt(request.getSenha()));
+        novoUsuario.atualizaSenha(encryptionHelper.encrypt(request.getSenha()));
         final Usuario usuarioCriado = usuarioRepository.save(novoUsuario);
 
         return usuarioCriado.getId();

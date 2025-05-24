@@ -22,7 +22,7 @@ public class EncryptionHelper {
     por hora, podemos setar aqui mesmo, ou no arquivo properties.
     EDIT: dessa forma que fiz aqui, ele pega do application.properties
      */
-    @Value("${database.encryptation-key}")
+    @Value("${database.encryption-key}")
     private final String secretKey;
 
     private static final String DEFAULT_ALGORITH = "AES";
