@@ -5,9 +5,11 @@ import com.postech.techchallenge.domain.Usuario;
 import com.postech.techchallenge.infrastructure.UsuarioRepository;
 import com.postech.techchallenge.infrastructure.shared.EncryptionHelper;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 @AllArgsConstructor
 public class AtualizarSenhaUseCase {
 

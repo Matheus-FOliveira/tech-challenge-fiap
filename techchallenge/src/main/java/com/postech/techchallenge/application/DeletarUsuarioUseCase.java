@@ -2,7 +2,9 @@ package com.postech.techchallenge.application;
 
 import com.postech.techchallenge.infrastructure.UsuarioRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @AllArgsConstructor
 public class DeletarUsuarioUseCase {
 

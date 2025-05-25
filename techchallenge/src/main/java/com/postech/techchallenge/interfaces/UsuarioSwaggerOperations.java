@@ -3,6 +3,7 @@ package com.postech.techchallenge.interfaces;
 import com.postech.techchallenge.application.request.AtualizarSenhaRequest;
 import com.postech.techchallenge.application.request.AtualizarUsuarioRequest;
 import com.postech.techchallenge.application.request.CriarUsuarioRequest;
+import com.postech.techchallenge.application.response.BuscarSenhaDescriptografadaResponse;
 import com.postech.techchallenge.application.response.BuscarTodosUsuariosResponse;
 import com.postech.techchallenge.application.response.BuscarUsuarioResponse;
 import org.springframework.http.ResponseEntity;
@@ -47,5 +48,10 @@ public interface UsuarioSwaggerOperations {
     //GET
     @Operation(summary = "Buscar todos usuários", description = "Retorna todos usuários do banco")
     public ResponseEntity<BuscarTodosUsuariosResponse> buscarTodosUsuarios();
+
+    //GET
+    @Operation(summary = "BuscarSenhaDescriptografada", description = "Retorna a senha descriptografada do usuário")
+    public ResponseEntity<BuscarSenhaDescriptografadaResponse> buscarSenhaDescriptografada(
+            @PathVariable("id") Long id);
 
 }

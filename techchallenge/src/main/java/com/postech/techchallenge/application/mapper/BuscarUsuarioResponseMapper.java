@@ -3,14 +3,22 @@ package com.postech.techchallenge.application.mapper;
 import com.postech.techchallenge.application.response.BuscarUsuarioResponse;
 import com.postech.techchallenge.domain.Usuario;
 import com.postech.techchallenge.infrastructure.shared.EncryptionHelper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BuscarUsuarioResponseMapper {
 
-    private static EncryptionHelper encryptionHelper;
+    private EncryptionHelper encryptionHelper;
 
-    public static BuscarUsuarioResponse mapBuscarUsuarioResponse(Usuario usuario) {
+    @Autowired
+    public BuscarUsuarioResponseMapper(EncryptionHelper encryptionHelper) {
+        this.encryptionHelper = encryptionHelper;
+    }
+
+    public BuscarUsuarioResponse mapBuscarUsuarioResponse(Usuario usuario) {
         return new BuscarUsuarioResponse(usuario.getId(), usuario.getNome(), usuario.getEndereco(),
-                usuario.getUserLogin(), encryptionHelper.encrypt(usuario.getSenha()), usuario.getEmail());
+                usuario.getUserLogin(), usuario.getSenha(), usuario.getEmail());
     }
 
 }

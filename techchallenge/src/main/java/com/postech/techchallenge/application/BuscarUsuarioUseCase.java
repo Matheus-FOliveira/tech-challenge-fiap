@@ -4,20 +4,22 @@ import com.postech.techchallenge.application.mapper.BuscarUsuarioResponseMapper;
 import com.postech.techchallenge.application.response.BuscarUsuarioResponse;
 import com.postech.techchallenge.domain.Usuario;
 import com.postech.techchallenge.infrastructure.UsuarioRepository;
-import com.postech.techchallenge.infrastructure.shared.EncryptionHelper;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static com.postech.techchallenge.application.mapper.BuscarUsuarioResponseMapper.mapBuscarUsuarioResponse;
 
+@Service
 @AllArgsConstructor
 public class BuscarUsuarioUseCase {
 
     private UsuarioRepository usuarioRepository;
 
+    private BuscarUsuarioResponseMapper mapper;
+
     public BuscarUsuarioResponse executar(final Long id) {
         final Optional<Usuario> usuarioEncontrado = usuarioRepository.findById(id);
-        return usuarioEncontrado.map(BuscarUsuarioResponseMapper::mapBuscarUsuarioResponse).orElse(null);
+        return usuarioEncontrado.map(mapper::mapBuscarUsuarioResponse).orElse(null);
     }
 }
