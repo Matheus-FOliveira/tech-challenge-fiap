@@ -1,4 +1,4 @@
-package com.postech.techchallenge.config;
+package com.postech.techchallenge.infrastructure.shared;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
