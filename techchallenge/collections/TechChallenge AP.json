@@ -1,0 +1,556 @@
+{
+	"info": {
+		"_postman_id": "bf6d7c16-9abd-403b-8c26-cf2333b91405",
+		"name": "TechChallenge API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27172258"
+	},
+	"item": [
+		{
+			"name": "api/v1/usuarios",
+			"item": [
+				{
+					"name": "Salvar usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"dolor esse laboris anim ea\",\n  \"email\": \"ad\",\n  \"userLogin\": \"enim dolore\",\n  \"senha\": \"reprehenderit consequat dolore\",\n  \"endereco\": {\n    \"id\": 54397866,\n    \"enderecoLinha1\": \"minim exercitation eu\",\n    \"enderecoLinha2\": \"mollit dolore\",\n    \"cep\": -58020930,\n    \"cidade\": \"sunt aliqua\",\n    \"estado\": \"adipisicing\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/v1/usuarios",
+						"description": "Cria um nova usuário"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"dolor esse laboris anim ea\",\n  \"email\": \"ad\",\n  \"userLogin\": \"enim dolore\",\n  \"senha\": \"reprehenderit consequat dolore\",\n  \"endereco\": {\n    \"id\": 54397866,\n    \"enderecoLinha1\": \"minim exercitation eu\",\n    \"enderecoLinha2\": \"mollit dolore\",\n    \"cep\": -58020930,\n    \"cidade\": \"sunt aliqua\",\n    \"estado\": \"adipisicing\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/v1/usuarios"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "33254174"
+						}
+					]
+				},
+				{
+					"name": "Atualizar usuário",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"esse irure laboris id\",\n  \"endereco\": {\n    \"id\": -70403228,\n    \"enderecoLinha1\": \"voluptate ex\",\n    \"enderecoLinha2\": \"proident culpa Lorem sed\",\n    \"cep\": -2193767,\n    \"cidade\": \"eiusmod officia\",\n    \"estado\": \"laboris c\"\n  },\n  \"userLogin\": \"laborum reprehenderit aliqua eu fugiat\",\n  \"email\": \"ipsum reprehenderit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/usuarios/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "33254174",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Atualiza completamente um usuário existente"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"esse irure laboris id\",\n  \"endereco\": {\n    \"id\": -70403228,\n    \"enderecoLinha1\": \"voluptate ex\",\n    \"enderecoLinha2\": \"proident culpa Lorem sed\",\n    \"cep\": -2193767,\n    \"cidade\": \"eiusmod officia\",\n    \"estado\": \"laboris c\"\n  },\n  \"userLogin\": \"laborum reprehenderit aliqua eu fugiat\",\n  \"email\": \"ipsum reprehenderit\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "33254174",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 8607916,\n  \"nome\": \"dolor in occaecat deserunt\",\n  \"email\": \"do proident veniam laboris enim\",\n  \"userLogin\": \"in nisi dolor aliquip\",\n  \"senha\": \"magna sint eiusmod commodo\",\n  \"ultimaAlteracao\": \"1946-06-15\",\n  \"endereco\": {\n    \"id\": 48800256,\n    \"enderecoLinha1\": \"laboris sunt ea\",\n    \"enderecoLinha2\": \"m\",\n    \"cep\": 4979786,\n    \"cidade\": \"fugiat deserunt Excepteur\",\n    \"estado\": \"id ut dolor in magna\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar senha",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"novaSenha\": \"pariatur ad\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/usuarios/updateSenha/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"updateSenha",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "33254174",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Atualiza a senha de um usuário existente"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"novaSenha\": \"pariatur ad\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/updateSenha/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"updateSenha",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "33254174",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 8607916,\n  \"nome\": \"dolor in occaecat deserunt\",\n  \"email\": \"do proident veniam laboris enim\",\n  \"userLogin\": \"in nisi dolor aliquip\",\n  \"senha\": \"magna sint eiusmod commodo\",\n  \"ultimaAlteracao\": \"1946-06-15\",\n  \"endereco\": {\n    \"id\": 48800256,\n    \"enderecoLinha1\": \"laboris sunt ea\",\n    \"enderecoLinha2\": \"m\",\n    \"cep\": 4979786,\n    \"cidade\": \"fugiat deserunt Excepteur\",\n    \"estado\": \"id ut dolor in magna\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar usuário",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/usuarios/buscarUsuario/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"buscarUsuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "33254174",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Busca um usuário pelo ID"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/buscarUsuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"buscarUsuario",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "33254174",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 38799975,\n  \"nome\": \"anim consectetur occaecat cillum sed\",\n  \"endereco\": {\n    \"id\": 85433844,\n    \"enderecoLinha1\": \"Duis ut velit irure\",\n    \"enderecoLinha2\": \"occaecat ad irure exercitation\",\n    \"cep\": 95264478,\n    \"cidade\": \"irure et laboris eu\",\n    \"estado\": \"adipisicing esse quis\"\n  },\n  \"userLogin\": \"minim et\",\n  \"senhaEncriptada\": \"anim pariatur aute\",\n  \"email\": \"reprehenderit ipsum\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar todos usuários",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": "{{baseUrl}}/api/v1/usuarios/buscarTodos",
+						"description": "Retorna todos usuários do banco"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": "{{baseUrl}}/api/v1/usuarios/buscarTodos"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"listaUsuarios\": [\n    {\n      \"id\": 70247546,\n      \"nome\": \"deserunt cupidatat Lorem tempor\",\n      \"endereco\": {\n        \"id\": 50774652,\n        \"enderecoLinha1\": \"mag\",\n        \"enderecoLinha2\": \"occaecat Lorem anim ea\",\n        \"cep\": -54838822,\n        \"cidade\": \"do\",\n        \"estado\": \"id nulla deserunt culpa ad\"\n      },\n      \"userLogin\": \"occaecat exercitation\",\n      \"senhaEncriptada\": \"sed tempor\",\n      \"email\": \"nisi ad\"\n    },\n    {\n      \"id\": 92492108,\n      \"nome\": \"deserunt sit velit commodo cupidatat\",\n      \"endereco\": {\n        \"id\": 62457152,\n        \"enderecoLinha1\": \"amet aliquip\",\n        \"enderecoLinha2\": \"ex exercitation aute consequat nulla\",\n        \"cep\": -42775165,\n        \"cidade\": \"commodo ipsum nulla\",\n        \"estado\": \"esse\"\n      },\n      \"userLogin\": \"cillum id nostrud dolore\",\n      \"senhaEncriptada\": \"Ut sit\",\n      \"email\": \"nostrud dolor minim eiusmod\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "BuscarSenhaDescriptografada",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/usuarios/buscaSenha/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"buscaSenha",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "33254174",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Retorna a senha descriptografada do usuário"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/buscaSenha/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"buscaSenha",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "33254174",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"senha\": \"non ea eiusmod\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/usuarios/deleteUsuario/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"deleteUsuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "33254174",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Remove um usuário pelo ID"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/deleteUsuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"deleteUsuario",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "33254174",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 8607916,\n  \"nome\": \"dolor in occaecat deserunt\",\n  \"email\": \"do proident veniam laboris enim\",\n  \"userLogin\": \"in nisi dolor aliquip\",\n  \"senha\": \"magna sint eiusmod commodo\",\n  \"ultimaAlteracao\": \"1946-06-15\",\n  \"endereco\": {\n    \"id\": 48800256,\n    \"enderecoLinha1\": \"laboris sunt ea\",\n    \"enderecoLinha2\": \"m\",\n    \"cep\": 4979786,\n    \"cidade\": \"fugiat deserunt Excepteur\",\n    \"estado\": \"id ut dolor in magna\"\n  }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
