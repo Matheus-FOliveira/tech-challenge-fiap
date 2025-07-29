@@ -1,14 +1,27 @@
 package com.postech.techchallenge.application.request;
 
-import com.postech.techchallenge.domain.Endereco;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class CriarUsuarioRequest {
-    private String nome;
-    private String email;
-    private String userLogin;
-    private String senha;
-    private Endereco endereco;
 
+    @Schema(example = "João da Silva")
+    private String nome;
+
+    @Schema(example = "joao@email.com")
+    private String email;
+
+    @Schema(example = "joaosilva")
+    private String userLogin;
+
+    @Schema(example = "senha123")
+    private String senha;
+
+    private EnderecoRequest endereco;
+
+    @Schema(example = "1")
+    private Long tipoUsuarioId;
 }

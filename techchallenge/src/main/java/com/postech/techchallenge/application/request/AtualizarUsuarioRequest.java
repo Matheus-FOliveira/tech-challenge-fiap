@@ -9,5 +9,6 @@ public class AtualizarUsuarioRequest {
     private Endereco endereco;
     private String userLogin;
     private String email;
+    private Long tipoUsuarioId;
 
 }
