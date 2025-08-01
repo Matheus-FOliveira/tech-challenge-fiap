@@ -1,20 +1,17 @@
 package com.postech.techchallenge.domain;
 
 import java.time.LocalDate;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,23 +26,28 @@ public class Usuario {
     @JoinColumn(name = "address_id", referencedColumnName = "id", unique = true)
     private Endereco endereco;
 
-    public Usuario(String nome, Endereco endereco, String senha, String userLogin, String email) {
+    @ManyToOne
+    @JoinColumn(name = "tipo_usuario_id")
+    private TipoUsuario tipoUsuario;
+
+    public Usuario(String nome, Endereco endereco, String senha, String userLogin, String email, TipoUsuario tipoUsuario) {
         this.nome = nome;
         this.endereco = endereco;
         this.senha = senha;
         this.userLogin = userLogin;
         this.email = email;
+        this.tipoUsuario = tipoUsuario;
     }
 
-    public void atualizaDados(String nome, Endereco endereco, String userLogin, String email) {
+    public void atualizaDados(String nome, Endereco endereco, String userLogin, String email, TipoUsuario tipoUsuario) {
         this.nome = nome;
         this.endereco = endereco;
         this.userLogin = userLogin;
         this.email = email;
+        this.tipoUsuario = tipoUsuario;
     }
 
     public void atualizaSenha(String novaSenha) {
         this.senha = novaSenha;
     }
-
 }

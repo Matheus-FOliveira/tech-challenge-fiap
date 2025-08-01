@@ -4,15 +4,16 @@ import com.postech.techchallenge.application.*;
 import com.postech.techchallenge.application.request.AtualizarSenhaRequest;
 import com.postech.techchallenge.application.request.AtualizarUsuarioRequest;
 import com.postech.techchallenge.application.request.CriarUsuarioRequest;
+import com.postech.techchallenge.application.request.LoginRequest;
 import com.postech.techchallenge.application.response.BuscarSenhaDescriptografadaResponse;
 import com.postech.techchallenge.application.response.BuscarTodosUsuariosResponse;
 import com.postech.techchallenge.application.response.BuscarUsuarioResponse;
+import com.postech.techchallenge.domain.Usuario;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.postech.techchallenge.domain.Usuario;
 
 @Slf4j
 @RestController
@@ -26,6 +27,7 @@ public class UsuarioController implements UsuarioSwaggerOperations {
     private final BuscarUsuarioUseCase buscarUsuarioUseCase;
     private final BuscarTodosUsuariosUseCase buscarTodosUsuariosUseCase;
     private final BuscarSenhaDescriptografadaUseCase buscarSenhaDescriptografadaUseCase;
+    private final LoginUseCase loginUseCase;
 
     public UsuarioController(CriarUsuarioUseCase criarUsuarioUseCase,
                              AtualizarUsuarioUseCase atualizarUsuarioUseCase,
@@ -33,7 +35,8 @@ public class UsuarioController implements UsuarioSwaggerOperations {
                              DeletarUsuarioUseCase deletarUsuarioUseCase,
                              BuscarUsuarioUseCase buscarUsuarioUseCase,
                              BuscarTodosUsuariosUseCase buscarTodosUsuariosUseCase,
-                             BuscarSenhaDescriptografadaUseCase buscarSenhaDescriptografadaUseCase) {
+                             BuscarSenhaDescriptografadaUseCase buscarSenhaDescriptografadaUseCase,
+                             LoginUseCase loginUseCase) {
         this.criarUsuarioUseCase = criarUsuarioUseCase;
         this.atualizarUsuarioUseCase = atualizarUsuarioUseCase;
         this.atualizarSenhaUseCase = atualizarSenhaUseCase;
@@ -41,6 +44,7 @@ public class UsuarioController implements UsuarioSwaggerOperations {
         this.buscarUsuarioUseCase = buscarUsuarioUseCase;
         this.buscarTodosUsuariosUseCase = buscarTodosUsuariosUseCase;
         this.buscarSenhaDescriptografadaUseCase = buscarSenhaDescriptografadaUseCase;
+        this.loginUseCase = loginUseCase;
     }
 
     @PostMapping
@@ -115,4 +119,13 @@ public class UsuarioController implements UsuarioSwaggerOperations {
         return ResponseEntity.notFound().build();
     }
 
+    // 🔐 Login de usuário
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody final LoginRequest request) {
+        log.info("Iniciando validação de login");
+        return loginUseCase.executar(request)
+                .<ResponseEntity<?>>map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body("Usuário ou senha inválidos"));
+    }
 }
