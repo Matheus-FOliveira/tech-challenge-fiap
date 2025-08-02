@@ -26,11 +26,11 @@ public class Usuario {
     @JoinColumn(name = "address_id", referencedColumnName = "id", unique = true)
     private Endereco endereco;
 
-    @ManyToOne
-    @JoinColumn(name = "tipo_usuario_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tipo_usuario_id", referencedColumnName = "id", unique = true)
     private TipoUsuario tipoUsuario;
 
-    public Usuario(String nome, Endereco endereco, String senha, String userLogin, String email, TipoUsuario tipoUsuario) {
+    public Usuario(String nome, Endereco endereco, String senha, String userLogin, String email) {
         this.nome = nome;
         this.endereco = endereco;
         this.senha = senha;
