@@ -11,6 +11,8 @@ import lombok.*;
 @EqualsAndHashCode
 @ToString
 @Entity
+@Setter
+@Getter
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
