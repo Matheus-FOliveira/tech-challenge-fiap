@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.postech.techchallenge.domain.Usuario;
+import com.postech.techchallenge.interfaces.swagger.UsuarioSwaggerOperations;
 
 @Slf4j
 @RestController
@@ -59,7 +61,7 @@ public class UsuarioController implements UsuarioSwaggerOperations {
 
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> atualizarUsuario(@RequestBody final AtualizarUsuarioRequest request,
-                                                    @PathVariable final Long id) {
+            @PathVariable final Long id) {
         log.info("Iniciando atualização de usuário");
         final boolean usuarioAtualizado = atualizarUsuarioUseCase.executar(id, request);
         if (usuarioAtualizado) {
@@ -68,9 +70,9 @@ public class UsuarioController implements UsuarioSwaggerOperations {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
-    @PatchMapping("/updateSenha/{id}")
+    @PutMapping("senha/{id}")
     public ResponseEntity<Usuario> atualizarSenha(@RequestBody final AtualizarSenhaRequest request,
-                                                  @PathVariable final Long id) {
+            @PathVariable final Long id) {
         log.info("Iniciando atualização de senha");
         final boolean usuarioAtualizado = atualizarSenhaUseCase.executar(id, request);
         if (usuarioAtualizado) {
@@ -79,7 +81,7 @@ public class UsuarioController implements UsuarioSwaggerOperations {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
-    @DeleteMapping("/deleteUsuario/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Usuario> deletarUsuario(@PathVariable final Long id) {
         log.info("Iniciando deleção de usuário");
         final boolean usuarioDeletado = deletarUsuarioUseCase.executar(id);
@@ -110,7 +112,8 @@ public class UsuarioController implements UsuarioSwaggerOperations {
     }
 
     @GetMapping("/buscaSenha/{id}")
-    public ResponseEntity<BuscarSenhaDescriptografadaResponse> buscarSenhaDescriptografada(@PathVariable final Long id) {
+    public ResponseEntity<BuscarSenhaDescriptografadaResponse> buscarSenhaDescriptografada(
+            @PathVariable final Long id) {
         log.info("Iniciando busca de senha descriptografada");
         final BuscarSenhaDescriptografadaResponse response = buscarSenhaDescriptografadaUseCase.executar(id);
         if (response != null) {

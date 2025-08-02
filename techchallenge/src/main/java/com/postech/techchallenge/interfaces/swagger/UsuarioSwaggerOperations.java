@@ -1,4 +1,4 @@
-package com.postech.techchallenge.interfaces;
+package com.postech.techchallenge.interfaces.swagger;
 
 import com.postech.techchallenge.application.request.AtualizarSenhaRequest;
 import com.postech.techchallenge.application.request.AtualizarUsuarioRequest;

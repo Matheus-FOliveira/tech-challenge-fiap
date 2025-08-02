@@ -1,20 +1,28 @@
 package com.postech.techchallenge.application;
 
-import com.postech.techchallenge.application.request.TipoUsuarioRequest;
+import org.springframework.stereotype.Service;
+
+import com.postech.techchallenge.application.request.CriarTipoUsuarioRequest;
 import com.postech.techchallenge.domain.TipoUsuario;
 import com.postech.techchallenge.infrastructure.TipoUsuarioRepository;
+
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
 public class CriarTipoUsuarioUseCase {
 
-    private final TipoUsuarioRepository tipoUsuarioRepository;
+    private TipoUsuarioRepository tipoUsuarioRepository;
 
-    public Long executar(TipoUsuarioRequest request) {
-        TipoUsuario tipo = new TipoUsuario();
-        tipo.setNome(request.getNome());
-        return tipoUsuarioRepository.save(tipo).getId();
+    public Long execute(CriarTipoUsuarioRequest request) {
+        final TipoUsuario novoTipoUsuario = new TipoUsuario(
+            request.getNome(),
+            request.getObservacao()
+            );
+        final TipoUsuario tipoUsuarioCriado = tipoUsuarioRepository.save(novoTipoUsuario);
+        
+        return tipoUsuarioCriado.getId();
+        
     }
+
 }
