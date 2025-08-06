@@ -1,12 +1,14 @@
 package com.postech.techchallenge.application;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import com.postech.techchallenge.application.request.AtualizarRestauranteRequest;
+import com.postech.techchallenge.domain.Endereco;
 import com.postech.techchallenge.domain.Restaurante;
+import com.postech.techchallenge.domain.Usuario;
+import com.postech.techchallenge.infrastructure.EnderecoRepository;
 import com.postech.techchallenge.infrastructure.RestauranteRepository;
+import com.postech.techchallenge.infrastructure.UsuarioRepository;
 
 import lombok.AllArgsConstructor;
 
@@ -15,22 +17,33 @@ import lombok.AllArgsConstructor;
 public class AtualizarRestauranteUseCase {
 
     private RestauranteRepository restauranteRepository;
+    private UsuarioRepository usuarioRepository;
+    private EnderecoRepository enderecoRepository;
 
     public boolean executar(final Long id, final AtualizarRestauranteRequest request) {
-        Optional<Restaurante> restauranteEncontrado = restauranteRepository.findById(id);
-        if (restauranteEncontrado.isPresent()) {
-            restauranteEncontrado.get().atualizaDados(
+        Restaurante restaurante = restauranteRepository.findById(id)
+                .orElse(null);
+
+        if (restaurante == null) {
+            return false;
+        }
+
+        Usuario usuario = usuarioRepository.findById(request.getUsuarioId())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        Endereco endereco = enderecoRepository.findById(request.getEnderecoId())
+                .orElseThrow(() -> new RuntimeException("Endereço não encontrado"));
+
+        restaurante.atualizaDados(
                 request.getNome(),
-                request.getEndereco(),
+                endereco,
                 request.getTipoCozinha(),
                 request.getHorarioFuncionamentoInicial(),
                 request.getHorarioFuncionamentoFinal(),
-                request.getUsuario()
-            );
+                usuario
+        );
 
-            restauranteRepository.save(restauranteEncontrado.get());
-            return true;
-        }
-        return false;
+        restauranteRepository.save(restaurante);
+        return true;
     }
 }

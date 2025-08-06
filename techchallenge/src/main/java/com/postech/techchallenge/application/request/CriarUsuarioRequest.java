@@ -20,7 +20,7 @@ public class CriarUsuarioRequest {
     @Schema(example = "senha123")
     private String senha;
 
-    private EnderecoRequest endereco;
+    private Long enderecoId;
 
     @Schema(example = "1")
     private Long tipoUsuarioId;
