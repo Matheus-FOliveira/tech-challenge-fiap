@@ -1,224 +1,287 @@
 {
 	"info": {
-		"_postman_id": "bf6d7c16-9abd-403b-8c26-cf2333b91405",
+		"_postman_id": "079fb846-cb20-4dd9-b235-8fdefce049d0",
 		"name": "TechChallenge API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27172258"
 	},
 	"item": [
 		{
-			"name": "api/v1/usuarios",
+			"name": "api/v1",
 			"item": [
 				{
-					"name": "Salvar usuário",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"nome\": \"dolor esse laboris anim ea\",\n  \"email\": \"ad\",\n  \"userLogin\": \"enim dolore\",\n  \"senha\": \"reprehenderit consequat dolore\",\n  \"endereco\": {\n    \"enderecoLinha1\": \"minim exercitation eu\",\n    \"enderecoLinha2\": \"mollit dolore\",\n    \"cep\": -58020930,\n    \"cidade\": \"sunt aliqua\",\n    \"estado\": \"adipisicing\"\n  }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{baseUrl}}/api/v1/usuarios",
-						"description": "Cria um nova usuário"
-					},
-					"response": [
+					"name": "usuarios",
+					"item": [
 						{
-							"name": "OK",
-							"originalRequest": {
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Atualizar usuário",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"enderecoId\": 1,\n  \"userLogin\": \"string\",\n  \"email\": \"string\",\n  \"tipoUsuarioId\": 775\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Atualiza completamente um usuário existente"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"string\",\n  \"endereco\": {\n    \"id\": 5703,\n    \"enderecoLinha1\": \"string\",\n    \"enderecoLinha2\": \"string\",\n    \"cep\": 3967,\n    \"cidade\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"userLogin\": \"string\",\n  \"email\": \"string\",\n  \"tipoUsuarioId\": 775\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/usuarios/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"usuarios",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": 4906,\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"userLogin\": \"string\",\n  \"senha\": \"string\",\n  \"ultimaAlteracao\": \"1947-12-31\",\n  \"endereco\": {\n    \"id\": 5416,\n    \"enderecoLinha1\": \"string\",\n    \"enderecoLinha2\": \"string\",\n    \"cep\": 8522,\n    \"cidade\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"tipoUsuario\": {\n    \"id\": 854,\n    \"nome\": \"strin\",\n    \"observacao\": \"string\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Deletar usuário",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/usuarios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"usuarios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Remove um usuário pelo ID"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/usuarios/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"usuarios",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": 4906,\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"userLogin\": \"string\",\n  \"senha\": \"string\",\n  \"ultimaAlteracao\": \"1947-12-31\",\n  \"endereco\": {\n    \"id\": 5416,\n    \"enderecoLinha1\": \"string\",\n    \"enderecoLinha2\": \"string\",\n    \"cep\": 8522,\n    \"cidade\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"tipoUsuario\": {\n    \"id\": 854,\n    \"nome\": \"strin\",\n    \"observacao\": \"string\"\n  }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Salvar usuário",
+							"request": {
 								"method": "POST",
 								"header": [
 									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
 										"key": "Accept",
 										"value": "*/*"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"nome\": \"dolor esse laboris anim ea\",\n  \"email\": \"ad\",\n  \"userLogin\": \"enim dolore\",\n  \"senha\": \"reprehenderit consequat dolore\",\n  \"endereco\": {\n    \"enderecoLinha1\": \"minim exercitation eu\",\n    \"enderecoLinha2\": \"mollit dolore\",\n    \"cep\": -58020930,\n    \"cidade\": \"sunt aliqua\",\n    \"estado\": \"adipisicing\"\n  }\n}",
+									"raw": "{\n  \"nome\": \"João da Silva\",\n  \"email\": \"joao@email.com\",\n  \"userLogin\": \"joaosilva\",\n  \"senha\": \"senha123\",\n  \"enderecoId\": 1,\n  \"tipoUsuarioId\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/v1/usuarios"
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios"
+									]
+								},
+								"description": "Cria um nova usuário"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": [],
-							"body": "33254174"
-						}
-					]
-				},
-				{
-					"name": "Atualizar usuário",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"nome\": \"esse irure laboris id\",\n  \"endereco\": {\n    \"enderecoLinha1\": \"voluptate ex\",\n    \"enderecoLinha2\": \"proident culpa Lorem sed\",\n    \"cep\": -2193767,\n    \"cidade\": \"eiusmod officia\",\n    \"estado\": \"laboris c\"\n  },\n  \"userLogin\": \"laborum reprehenderit aliqua eu fugiat\",\n  \"email\": \"ipsum reprehenderit\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/api/v1/usuarios/:id",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"usuarios",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1",
-									"description": "(Required) "
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"João da Silva\",\n  \"email\": \"joao@email.com\",\n  \"userLogin\": \"joaosilva\",\n  \"senha\": \"senha123\",\n  \"endereco\": {\n    \"enderecoLinha1\": \"Rua das Flores, 123\",\n    \"enderecoLinha2\": \"Apto 201\",\n    \"cep\": 12345678,\n    \"cidade\": \"São Paulo\",\n    \"estado\": \"SP\"\n  },\n  \"tipoUsuarioId\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"usuarios"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "3038"
 								}
 							]
 						},
-						"description": "Atualiza completamente um usuário existente"
-					},
-					"response": [
 						{
-							"name": "OK",
-							"originalRequest": {
+							"name": "Atualizar senha",
+							"request": {
 								"method": "PUT",
 								"header": [
 									{
-										"key": "Accept",
-										"value": "*/*"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"nome\": \"esse irure laboris id\",\n  \"endereco\": {\n    \"enderecoLinha1\": \"voluptate ex\",\n    \"enderecoLinha2\": \"proident culpa Lorem sed\",\n    \"cep\": -2193767,\n    \"cidade\": \"eiusmod officia\",\n    \"estado\": \"laboris c\"\n  },\n  \"userLogin\": \"laborum reprehenderit aliqua eu fugiat\",\n  \"email\": \"ipsum reprehenderit\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/api/v1/usuarios/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"usuarios",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "1",
-											"description": "(Required) "
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": []
-						}
-					]
-				},
-				{
-					"name": "Atualizar senha",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"novaSenha\": \"pariatur ad\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/api/v1/usuarios/updateSenha/:id",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"usuarios",
-								"updateSenha",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1",
-									"description": "(Required) "
-								}
-							]
-						},
-						"description": "Atualiza a senha de um usuário existente"
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [
+										"key": "Content-Type",
+										"value": "application/json"
+									},
 									{
 										"key": "Accept",
 										"value": "*/*"
@@ -226,7 +289,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"novaSenha\": \"pariatur ad\"\n}",
+									"raw": "{\n  \"novaSenha\": \"string\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -234,7 +297,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/usuarios/updateSenha/:id",
+									"raw": "{{baseUrl}}/api/v1/usuarios/senha/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -242,67 +305,160 @@
 										"api",
 										"v1",
 										"usuarios",
-										"updateSenha",
+										"senha",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "1",
-											"description": " (Required) "
+											"value": "3038",
+											"description": "(Required) "
 										}
 									]
-								}
+								},
+								"description": "Atualiza a senha de um usuário existente"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": []
-						}
-					]
-				},
-				{
-					"name": "Buscar usuário",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/api/v1/usuarios/buscarUsuario/:id",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"usuarios",
-								"buscarUsuario",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1",
-									"description": "(Required) "
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"novaSenha\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/usuarios/senha/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"usuarios",
+												"senha",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 4906,\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"userLogin\": \"string\",\n  \"senha\": \"string\",\n  \"ultimaAlteracao\": \"1947-12-31\",\n  \"endereco\": {\n    \"id\": 5416,\n    \"enderecoLinha1\": \"string\",\n    \"enderecoLinha2\": \"string\",\n    \"cep\": 8522,\n    \"cidade\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"tipoUsuario\": {\n    \"id\": 854,\n    \"nome\": \"strin\",\n    \"observacao\": \"string\"\n  }\n}"
 								}
 							]
 						},
-						"description": "Busca um usuário pelo ID"
-					},
-					"response": [
 						{
-							"name": "OK",
-							"originalRequest": {
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userLogin\": \"string\",\n  \"senha\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userLogin\": \"string\",\n  \"senha\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/usuarios/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"usuarios",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						},
+						{
+							"name": "Buscar usuário",
+							"request": {
 								"method": "GET",
 								"header": [
 									{
@@ -325,43 +481,62 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "1",
+											"value": "3038",
 											"description": "(Required) "
 										}
 									]
-								}
+								},
+								"description": "Busca um usuário pelo ID"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Type",
-									"value": "*/*"
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/usuarios/buscarUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"usuarios",
+												"buscarUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1571,\n  \"nome\": \"string\",\n  \"endereco\": {\n    \"id\": 8061,\n    \"enderecoLinha1\": \"string\",\n    \"enderecoLinha2\": \"string\",\n    \"cep\": 9476,\n    \"cidade\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"userLogin\": \"string\",\n  \"senhaEncriptada\": \"string\",\n  \"email\": \"string\"\n}"
 								}
-							],
-							"cookie": [],
-							"body": "{\n  \"id\": 38799975,\n  \"nome\": \"anim consectetur occaecat cillum sed\",\n  \"endereco\": {\n    \"id\": 85433844,\n    \"enderecoLinha1\": \"Duis ut velit irure\",\n    \"enderecoLinha2\": \"occaecat ad irure exercitation\",\n    \"cep\": 95264478,\n    \"cidade\": \"irure et laboris eu\",\n    \"estado\": \"adipisicing esse quis\"\n  },\n  \"userLogin\": \"minim et\",\n  \"senhaEncriptada\": \"anim pariatur aute\",\n  \"email\": \"reprehenderit ipsum\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Buscar todos usuários",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": "{{baseUrl}}/api/v1/usuarios/buscarTodos",
-						"description": "Retorna todos usuários do banco"
-					},
-					"response": [
+							]
+						},
 						{
-							"name": "OK",
-							"originalRequest": {
+							"name": "Buscar todos usuários",
+							"request": {
 								"method": "GET",
 								"header": [
 									{
@@ -369,58 +544,61 @@
 										"value": "*/*"
 									}
 								],
-								"url": "{{baseUrl}}/api/v1/usuarios/buscarTodos"
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/buscarTodos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"buscarTodos"
+									]
+								},
+								"description": "Retorna todos usuários do banco"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n  \"listaUsuarios\": [\n    {\n      \"id\": 70247546,\n      \"nome\": \"deserunt cupidatat Lorem tempor\",\n      \"endereco\": {\n        \"enderecoLinha1\": \"mag\",\n        \"enderecoLinha2\": \"occaecat Lorem anim ea\",\n        \"cep\": -54838822,\n        \"cidade\": \"do\",\n        \"estado\": \"id nulla deserunt culpa ad\"\n      },\n      \"userLogin\": \"occaecat exercitation\",\n      \"senhaEncriptada\": \"sed tempor\",\n      \"email\": \"nisi ad\"\n    },\n    {\n      \"id\": 92492108,\n      \"nome\": \"deserunt sit velit commodo cupidatat\",\n      \"endereco\": {\n        \"enderecoLinha1\": \"amet aliquip\",\n        \"enderecoLinha2\": \"ex exercitation aute consequat nulla\",\n        \"cep\": -42775165,\n        \"cidade\": \"commodo ipsum nulla\",\n        \"estado\": \"esse\"\n      },\n      \"userLogin\": \"cillum id nostrud dolore\",\n      \"senhaEncriptada\": \"Ut sit\",\n      \"email\": \"nostrud dolor minim eiusmod\"\n    }\n  ]\n}"
-						}
-					]
-				},
-				{
-					"name": "BuscarSenhaDescriptografada",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/api/v1/usuarios/buscaSenha/:id",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"usuarios",
-								"buscaSenha",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1",
-									"description": "(Required) "
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/usuarios/buscarTodos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"usuarios",
+												"buscarTodos"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"listaUsuarios\": [\n    {\n      \"id\": 2189,\n      \"nome\": \"string\",\n      \"endereco\": {\n        \"id\": 557,\n        \"enderecoLinha1\": \"string\",\n        \"enderecoLinha2\": \"string\",\n        \"cep\": 3817,\n        \"cidade\": \"string\",\n        \"estado\": \"string\"\n      },\n      \"userLogin\": \"string\",\n      \"senhaEncriptada\": \"string\",\n      \"email\": \"string\"\n    },\n    {\n      \"id\": 7043,\n      \"nome\": \"string\",\n      \"endereco\": {\n        \"id\": 3946,\n        \"enderecoLinha1\": \"string\",\n        \"enderecoLinha2\": \"string\",\n        \"cep\": 2199,\n        \"cidade\": \"string\",\n        \"estado\": \"string\"\n      },\n      \"userLogin\": \"string\",\n      \"senhaEncriptada\": \"string\",\n      \"email\": \"string\"\n    }\n  ]\n}"
 								}
 							]
 						},
-						"description": "Retorna a senha descriptografada do usuário"
-					},
-					"response": [
 						{
-							"name": "OK",
-							"originalRequest": {
+							"name": "BuscarSenhaDescriptografada",
+							"request": {
 								"method": "GET",
 								"header": [
 									{
@@ -443,63 +621,304 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "1",
+											"value": "3038",
 											"description": "(Required) "
 										}
 									]
-								}
+								},
+								"description": "Retorna a senha descriptografada do usuário"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Type",
-									"value": "*/*"
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/usuarios/buscaSenha/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"usuarios",
+												"buscaSenha",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"senha\": \"string\"\n}"
 								}
-							],
-							"cookie": [],
-							"body": "{\n  \"senha\": \"non ea eiusmod\"\n}"
+							]
 						}
 					]
 				},
 				{
-					"name": "Deletar usuário",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/api/v1/usuarios/deleteUsuario/:id",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"usuarios",
-								"deleteUsuario",
-								":id"
-							],
-							"variable": [
+					"name": "tipos-usuario",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
 								{
-									"key": "id",
-									"value": "1",
-									"description": "(Required) "
+									"name": "Buscar tipo de usuário",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"tipos-usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Busca um tipo de usuário pelo ID"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"tipos-usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": 7050,\n  \"nome\": \"string\",\n  \"observacao\": \"string\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Atualizar tipo de usuário",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"tipos-usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Atualiza completamente um tipo de usuário existente"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"tipos-usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Deletar tipo de usuário",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"tipos-usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Remove um tipo de usuário pelo ID"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/tipos-usuario/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"tipos-usuario",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
 								}
 							]
 						},
-						"description": "Remove um usuário pelo ID"
-					},
-					"response": [
 						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "DELETE",
+							"name": "Buscar todos tipos de usuário",
+							"request": {
+								"method": "GET",
 								"header": [
 									{
 										"key": "Accept",
@@ -507,36 +926,902 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/usuarios/deleteUsuario/:id",
+									"raw": "{{baseUrl}}/api/v1/tipos-usuario",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"v1",
-										"usuarios",
-										"deleteUsuario",
-										":id"
-									],
-									"variable": [
+										"tipos-usuario"
+									]
+								},
+								"description": "Retorna todos os tipos de usuário"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/tipos-usuario",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"tipos-usuario"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
 										{
-											"key": "id",
-											"value": "1",
-											"description": "(Required) "
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"listaTiposUsuario\": [\n    {\n      \"id\": 8163,\n      \"nome\": \"string\",\n      \"observacao\": \"string\"\n    },\n    {\n      \"id\": 2854,\n      \"nome\": \"string\",\n      \"observacao\": \"string\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Criar tipo de usuário",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"string\",\n  \"observacao\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/tipos-usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tipos-usuario"
+									]
+								},
+								"description": "Cria um novo tipo de usuário"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"observacao\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/tipos-usuario",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"tipos-usuario"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "3038"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "restaurantes",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Buscar restaurante por ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"restaurantes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Retorna um restaurante específico pelo ID"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"restaurantes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": 4660,\n  \"nome\": \"string\",\n  \"endereco\": {\n    \"id\": 1556,\n    \"enderecoLinha1\": \"string\",\n    \"enderecoLinha2\": \"string\",\n    \"cep\": 8680,\n    \"cidade\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"tipoCozinha\": \"string\",\n  \"horarioFuncionamentoInicial\": \"14:30:00\",\n  \"horarioFuncionamentoFinal\": \"14:30:00\",\n  \"usuarioId\": 8347\n}"
+										}
+									]
+								},
+								{
+									"name": "Atualizar restaurante",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"enderecoId\": 1,\n  \"tipoCozinha\": \"string\",\n  \"horarioFuncionamentoInicial\": \"14:30:00\",\n  \"horarioFuncionamentoFinal\": \"14:30:00\",\n  \"usuarioId\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"restaurantes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Atualiza um restaurante existente"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"string\",\n  \"endereco\": {\n    \"id\": 1515,\n    \"enderecoLinha1\": \"string\",\n    \"enderecoLinha2\": \"string\",\n    \"cep\": 7407,\n    \"cidade\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"tipoCozinha\": \"string\",\n  \"horarioFuncionamentoInicial\": \"14:30:00\",\n  \"horarioFuncionamentoFinal\": \"14:30:00\",\n  \"usuario\": {\n    \"id\": 2316,\n    \"nome\": \"string\",\n    \"email\": \"string\",\n    \"userLogin\": \"string\",\n    \"senha\": \"string\",\n    \"ultimaAlteracao\": \"1979-06-08\",\n    \"endereco\": {\n      \"id\": 2007,\n      \"enderecoLinha1\": \"string\",\n      \"enderecoLinha2\": \"string\",\n      \"cep\": 9239,\n      \"cidade\": \"\",\n      \"estado\": \"string\"\n    },\n    \"tipoUsuario\": {\n      \"id\": 1719,\n      \"nome\": \"string\",\n      \"observacao\": \"string\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"restaurantes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Deletar restaurante",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"restaurantes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Deleta um restaurante existente"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/restaurantes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"restaurantes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
 										}
 									]
 								}
+							]
+						},
+						{
+							"name": "Buscar todos os restaurantes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/restaurantes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"restaurantes"
+									]
+								},
+								"description": "Retorna todos os restaurantes"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Content-Type",
-									"value": "*/*"
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/restaurantes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"restaurantes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"listaRestaurantes\": [\n    {\n      \"id\": 9626,\n      \"nome\": \"string\",\n      \"endereco\": {\n        \"id\": 7241,\n        \"enderecoLinha1\": \"string\",\n        \"enderecoLinha2\": \"string\",\n        \"cep\": 40,\n        \"cidade\": \"string\",\n        \"estado\": \"string\"\n      },\n      \"tipoCozinha\": \"string\",\n      \"horarioFuncionamentoInicial\": \"14:30:00\",\n      \"horarioFuncionamentoFinal\": \"14:30:00\",\n      \"usuarioId\": 1045\n    },\n    {\n      \"id\": 6807,\n      \"nome\": \"string\",\n      \"endereco\": {\n        \"id\": 3844,\n        \"enderecoLinha1\": \"string\",\n        \"enderecoLinha2\": \"string\",\n        \"cep\": 7575,\n        \"cidade\": \"string\",\n        \"estado\": \"string\"\n      },\n      \"tipoCozinha\": \"string\",\n      \"horarioFuncionamentoInicial\": \"14:30:00\",\n      \"horarioFuncionamentoFinal\": \"14:30:00\",\n      \"usuarioId\": 3692\n    }\n  ]\n}"
 								}
-							],
-							"cookie": []
+							]
+						},
+						{
+							"name": "Salvar restaurante",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"string\",\n  \"enderecoId\": 1,\n  \"tipoCozinha\": \"string\",\n  \"horarioFuncionamentoInicial\": \"14:30:00\",\n  \"horarioFuncionamentoFinal\": \"14:30:00\",\n  \"usuarioId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/restaurantes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"restaurantes"
+									]
+								},
+								"description": "Cria um novo restaurante"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"endereco\": {\n    \"id\": 1515,\n    \"enderecoLinha1\": \"string\",\n    \"enderecoLinha2\": \"string\",\n    \"cep\": 7407,\n    \"cidade\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"tipoCozinha\": \"string\",\n  \"horarioFuncionamentoInicial\": \"14:30:00\",\n  \"horarioFuncionamentoFinal\": \"14:30:00\",\n  \"usuario\": {\n    \"id\": 2316,\n    \"nome\": \"string\",\n    \"email\": \"string\",\n    \"userLogin\": \"string\",\n    \"senha\": \"string\",\n    \"ultimaAlteracao\": \"1979-06-08\",\n    \"endereco\": {\n      \"id\": 2007,\n      \"enderecoLinha1\": \"string\",\n      \"enderecoLinha2\": \"string\",\n      \"cep\": 9239,\n      \"cidade\": \"\",\n      \"estado\": \"string\"\n    },\n    \"tipoUsuario\": {\n      \"id\": 1719,\n      \"nome\": \"string\",\n      \"observacao\": \"string\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/restaurantes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"restaurantes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "3038"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "cardapios",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Buscar cardápio por ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/cardapios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"cardapios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Retorna um cardápio específico pelo ID"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/cardapios/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"cardapios",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": 9157,\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 6228.586777919311,\n  \"disponibilidade\": true,\n  \"urlImagem\": \"string\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Atualizar cardápio",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 6556.911364172129,\n  \"disponibilidade\": true,\n  \"urlImagem\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/cardapios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"cardapios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Atualiza um cardápio existente"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 6556.911364172129,\n  \"disponibilidade\": true,\n  \"urlImagem\": \"string\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/cardapios/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"cardapios",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Deletar cardápio",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/cardapios/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"cardapios",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3038",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Deleta um cardápio existente"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/cardapios/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"cardapios",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3038",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Buscar todos os cardápios",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/cardapios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cardapios"
+									]
+								},
+								"description": "Retorna todos os cardápios"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/cardapios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"cardapios"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"listaCardapios\": [\n    {\n      \"id\": 6105,\n      \"nome\": \"str\",\n      \"descricao\": \"string\",\n      \"preco\": 7482.545884286029,\n      \"disponibilidade\": true,\n      \"urlImagem\": \"string\"\n    },\n    {\n      \"id\": 8991,\n      \"nome\": \"string\",\n      \"descricao\": \"string\",\n      \"preco\": 4911.76510952918,\n      \"disponibilidade\": true,\n      \"urlImagem\": \"string\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Salvar cardápio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 6556.911364172129,\n  \"disponibilidade\": true,\n  \"urlImagem\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/cardapios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cardapios"
+									]
+								},
+								"description": "Cria um novo cardápio"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 6556.911364172129,\n  \"disponibilidade\": true,\n  \"urlImagem\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/cardapios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"cardapios"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "3038"
+								}
+							]
 						}
 					]
 				}
